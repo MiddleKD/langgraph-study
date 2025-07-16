@@ -1,26 +1,29 @@
 from typing import Annotated
 
+from dotenv import load_dotenv
+from langgraph.graph import END, START, StateGraph
+from langgraph.graph.message import add_messages
 from typing_extensions import TypedDict
 
-from langgraph.graph import StateGraph, START, END
-from langgraph.graph.message import add_messages
-
-from dotenv import load_dotenv
 load_dotenv()
 
 from pydantic_ai import Agent
 from pydantic_ai.models.openai import OpenAIModel
 
-model = OpenAIModel(model_name='gpt-4o-mini')
+model = OpenAIModel(model_name="gpt-4o-mini")
 agent = Agent(model)
+
 
 class State(TypedDict):
     messages: Annotated[list, add_messages]
 
+
 graph_builder = StateGraph(State)
+
 
 def chatbot(state: State):
     return {"messages": [agent.run_sync([m.content for m in state["messages"]]).output]}
+
 
 graph_builder.add_node("chatbot", chatbot)
 graph_builder.add_edge(START, "chatbot")
@@ -35,6 +38,7 @@ def stream_graph_update(user_input: str):
         for value in event.values():
             print(event)
             print("Assistant:", value["messages"][-1])
+
 
 if __name__ == "__main__":
     while True:
