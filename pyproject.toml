@@ -1,7 +1,11 @@
 [project]
-name = "langgraph"
+name = "langgraph-study"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "langgraph>=0.5.3",
+    "pydantic-ai-slim[openai]>=0.4.2",
+    "python-dotenv>=1.1.1",
+]
