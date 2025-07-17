@@ -10,7 +10,6 @@ load_dotenv()
 
 from langchain_core.messages import ToolMessage
 from langchain_openai import ChatOpenAI
-from langchain_tavily import TavilySearch
 
 from langgraph.prebuilt import ToolNode, tools_condition
 from langgraph.checkpoint.memory import MemorySaver
