@@ -8,6 +8,8 @@ dependencies = [
     "langchain-tavily>=0.2.8",
     "langchain[openai]>=0.3.26",
     "langgraph>=0.5.3",
+    "langgraph-cli[inmem]>=0.3.4",
+    "langgraph-sdk>=0.1.73",
     "pydantic-ai-slim[openai,tavily]>=0.4.2",
     "python-dotenv>=1.1.1",
 ]
