@@ -11,6 +11,7 @@ requires-python = ">=3.9"
 dependencies = [
     "langchain-tavily>=0.2.9",
     "langchain[openai]>=0.3.26",
+    "langfuse>=3.2.1",
     "langgraph>=0.2.6",
     "pytest>=8.4.1",
     "python-dotenv>=1.0.1",

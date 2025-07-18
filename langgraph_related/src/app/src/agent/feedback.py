@@ -76,4 +76,9 @@ graph_builder.add_edge("tools", "chatbot")
 graph_builder.add_edge("chatbot", END)
 
 
-graph = graph_builder.compile(name="Human feedback graph")
+from langfuse.langchain import CallbackHandler
+langfuse_handler = CallbackHandler()
+
+graph = (graph_builder.compile(name="Human feedback graph")
+.with_config({"callbacks": [langfuse_handler]})
+)

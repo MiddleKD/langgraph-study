@@ -4,6 +4,7 @@ import asyncio
 
 client = get_client(url="http://localhost:2024")
 
+user_id = "middlek"
 async def main():
     thread = await client.threads.create()
     thread_id = thread["thread_id"]
@@ -17,6 +18,8 @@ async def main():
             "content": "Can you look up when LangGraph was released? When you have the answer, use the human_assistance tool for review.",
             }],
         },
+        config={"metadata": {"langfuse_session_id": thread_id, 
+        "langfuse_user_id": user_id}}
     )
     print(result["messages"][-1])
 
@@ -27,7 +30,9 @@ async def main():
             "name": "LangGraph",
             "birthday": "Jan 17, 2024",
             # "correct": "yes"
-        },)   
+        },),
+        config={"metadata": {"langfuse_session_id": thread_id, 
+        "langfuse_user_id": user_id}}
     )
     print(result["messages"][-1])
 
