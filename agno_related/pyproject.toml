@@ -1,0 +1,18 @@
+[project]
+name = "agno-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "agno>=1.7.1",
+    "duckduckgo-search>=8.1.1",
+    "fastapi[standard]>=0.115.14",
+    "lancedb>=0.24.0",
+    "openai>=1.93.0",
+    "pylance>=0.31.0",
+    "python-dotenv>=1.1.1",
+    "sqlalchemy>=2.0.41",
+    "tantivy>=0.24.0",
+    "yfinance>=0.2.65",
+]
