@@ -96,7 +96,6 @@ async def main():
         print(result.usage())  
         #> Usage(requests=4, request_tokens=309, response_tokens=32, total_tokens=341)
 
-# app = joke_selection_agent.to_a2a()
 if __name__ == "__main__":
     import asyncio
     asyncio.run(main())
